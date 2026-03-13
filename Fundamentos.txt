@@ -109,4 +109,206 @@ public class Main {
     }
 }
 
------ FASE 2.  -----
+----- FASE 2. FUNDAMENTOS PROFESIONALES -----
+BUENAS PRÁCTICAS INICIALES
+No usar variables globales innecesarias
+Métodos pequeños
+Responsabilidad única
+Nombres claros
+Manejar errores siempre
+Modularizar
+
+--- funciones / metodos ---
+Una función Recibe datos (parámetros), 
+Hace un proceso
+Retorna un resultado. 
+Permite reutilizar código y dividir responsabilidades.
+void significa que no retorna nada.
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int resultado = sumar(5, 3);
+        System.out.println("Resultado: " + resultado);
+
+        saludar("Juan");
+    }
+
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public static void saludar(String nombre) {
+        System.out.println("Hola " + nombre);
+    }
+}
+
+--- modularización ---
+Dividir el programa en partes independientes.
+Modularizar evita código gigante 
+y mejora el mantenimiento.
+Ejemplo: Sistema bancario
+Módulo usuario
+Módulo cuenta
+Módulo operaciones
+
+public class Calculadora {
+
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public static int restar(int a, int b) {
+        return a - b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        int resultado = Calculadora.sumar(10, 5);
+        System.out.println(resultado);
+    }
+}
+
+--- paso por valor y referencia ---
+Java pasa TODO por valor.
+Pero cuando es objeto, pasa la 
+referencia por valor.
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int numero = 10;
+        cambiarValor(numero);
+        System.out.println(numero); // Sigue siendo 10
+    }
+
+    public static void cambiarValor(int n) {
+        n = 50;
+    }
+}
+
+class Persona {
+    String nombre;
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Persona p = new Persona();
+        p.nombre = "Juan";
+
+        cambiarNombre(p);
+        System.out.println(p.nombre); // Cambia a Pedro
+    }
+
+    public static void cambiarNombre(Persona persona) {
+        persona.nombre = "Pedro";
+    }
+}
+
+--- manejo de errorres /excepciones ---
+Programar sin manejar errores 
+es programar mal.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Ingrese un número: ");
+            int numero = Integer.parseInt(scanner.nextLine());
+            System.out.println("Número ingresado: " + numero);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: No es un número válido");
+        } finally {
+            System.out.println("Proceso terminado");
+        }
+    }
+}
+
+--- programacion orientada a objetos ---
+-> clase y objeto
+class Persona {
+
+    String nombre;
+    int edad;
+
+    void saludar() {
+        System.out.println("Hola, soy " + nombre);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Persona p = new Persona();
+        p.nombre = "Juan";
+        p.edad = 25;
+
+        p.saludar();
+    }
+}
+
+-> encapsulamiento
+Ocultar datos y usar getters/setters.
+class Cuenta {
+
+    private double saldo;
+
+    public Cuenta(double saldoInicial) {
+        saldo = saldoInicial;
+    }
+
+    public void depositar(double cantidad) {
+        saldo += cantidad;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+
+-> herencia
+class Animal {
+    void hacerSonido() {
+        System.out.println("Sonido genérico");
+    }
+}
+
+class Perro extends Animal {
+    @Override
+    void hacerSonido() {
+        System.out.println("Guau");
+    }
+}
+
+-> polimorfismo
+Animal miAnimal = new Perro();
+miAnimal.hacerSonido();
+
+-> abstraccion
+abstract class Figura {
+    abstract double calcularArea();
+}
+
+class Cuadrado extends Figura {
+
+    double lado;
+
+    Cuadrado(double lado) {
+        this.lado = lado;
+    }
+
+    double calcularArea() {
+        return lado * lado;
+    }
+}
+
