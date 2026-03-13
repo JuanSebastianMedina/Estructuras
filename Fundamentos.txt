@@ -1,0 +1,112 @@
+----- FASE 1. FUNDAMENRTOS DE PROGRAMACIÓN -----
+--- Tipos de datos y variables ---
+public class Main {
+    public static void main(String[] args) {
+
+        int edad = 25;
+        double altura = 1.75;
+        char letra = 'A';
+        boolean activo = true;
+        String nombre = "Juan";
+
+        System.out.println("Edad: " + edad);
+        System.out.println("Altura: " + altura);
+        System.out.println("Letra: " + letra);
+        System.out.println("Activo: " + activo);
+        System.out.println("Nombre: " + nombre);
+    }
+}
+
+--- Entrada y salida de datos ---
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese su nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingrese su edad: ");
+        int edad = scanner.nextInt();
+
+        System.out.println("Hola " + nombre + ", tienes " + edad + " años.");
+    }
+}
+
+--- Decisiones if & switch---
+public class Main {
+    public static void main(String[] args) {
+
+        int numero = 10;
+
+        if (numero > 5) {
+            System.out.println("Es mayor que 5");
+        } else {
+            System.out.println("Es menor o igual a 5");
+        }
+
+        int opcion = 2;
+
+        switch (opcion) {
+            case 1:
+                System.out.println("Opción 1");
+                break;
+            case 2:
+                System.out.println("Opción 2");
+                break;
+            default:
+                System.out.println("Otra opción");
+        }
+    }
+}
+
+--- Ciclos for & while ---
+public class Main {
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Número: " + i);
+        }
+
+        int contador = 1;
+
+        while (contador <= 5) {
+            System.out.println("While: " + contador);
+            contador++;
+        }
+    }
+}
+
+--- arreglos ---
+public class Main {
+    public static void main(String[] args) {
+
+        int[] numeros = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println(numeros[i]);
+        }
+    }
+}
+
+--- matrices ---
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] matriz = {
+                {1, 2},
+                {3, 4}
+        };
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+----- FASE 2.  -----
