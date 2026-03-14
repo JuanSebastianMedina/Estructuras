@@ -3,7 +3,7 @@ indice
     fase 2 fundamentos profesionales - 126
     fase 3 estructuras, algoritmos y patrones- 329
     fase 4 arquitectura Android- 1148
-    fase 5 - 1186
+    fase 5 temas actuales - 1186
     fase 6 -
     fase 7 - 
     fase 8 - 
@@ -1184,3 +1184,31 @@ com.miapp
       └── viewmodel
 
 ----- fase 5. -----
+-> LiveData
+Es un observable con ciclo de vida 
+(lifecycle-aware).
+Se usa principalmente en MVVM.
+
+-> StateFlow (kotlin)
+Reemplazo moderno de LiveData.
+
+-> Corrutinas (kotlin)
+Son hilos ligeros.
+
+-> Retrofit (api rest)
+
+-> Room (base de datos local)
+
+-> Dependency Injection (Hilt)
+
+-> Jetpack Compose (kotlin)
+
+--- modularizacion avanzada ---
+modulos:
+app
+domain
+data
+core
+feature-login
+feature-home
+
