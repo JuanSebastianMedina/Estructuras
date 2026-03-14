@@ -1,3 +1,17 @@
+indice
+    fase 1 fundamentos - 15
+    fase 2 fundamentos profesionales - 126
+    fase 3 estructuras, algoritmos y patrones- 329
+    fase 4 arquitectura Android- 1148
+    fase 5 - 1186
+    fase 6 -
+    fase 7 - 
+    fase 8 - 
+    fase 9 -
+    fase 10 - 
+    fase 11 - 
+    fase 12 -
+
 ----- FASE 1. FUNDAMENRTOS DE PROGRAMACIÓN -----
 --- Tipos de datos y variables ---
 public class Main {
@@ -1131,4 +1145,42 @@ public class Main {
     }
 }
 
+----- FASE 4. -----
+--- arquitectura profesional Android ---
+En Android profesional NO se programa todo en una Activity.
+Se separa en capas:
+Presentation
+Domain
+Data
+Y se utiliza un patrón de arquitectura como:
+MVC (antiguo)
+MVP
+MVVM (el estándar actual)
 
+-> MVVM ---
+Model → Datos
+View → UI (Activity / Fragment)
+ViewModel → Lógica de presentación
+View → ViewModel → UseCase → Repository → DataSource
+
+-> clean architecture ---
+Divide el proyecto en capas independientes.
+Capas: Las capas externas dependen de las internas, NUNCA al revés.
+Presentation
+Domain
+Data
+
+estructura profesional
+com.miapp
+ ├── data
+ │    ├── repository
+ │    └── datasource
+ ├── domain
+ │    ├── model
+ │    ├── repository
+ │    └── usecase
+ └── presentation
+      ├── view
+      └── viewmodel
+
+----- fase 5. -----
