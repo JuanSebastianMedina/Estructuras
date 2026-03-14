@@ -1212,3 +1212,27 @@ core
 feature-login
 feature-home
 
+----- fase 6. arquitectura -----
+--- arquitectura empresarial ---
+organizacion:
+core
+common
+data
+domain
+app
+features/
+   login
+   home
+   dashboard
+
+estructura:
+core → utilidades compartidas
+domain → reglas de negocio
+data → implementaciones
+features/login
+features/home
+app → configuración global
+
+--- arquitectura MVI ---
+Model - View - Intent
+Intent → ViewModel → Reducer → State → View
