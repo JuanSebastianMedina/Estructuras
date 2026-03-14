@@ -312,3 +312,823 @@ class Cuadrado extends Figura {
     }
 }
 
+----- FASE 3. -----
+--- estructuras de datos ---
+Una estructura de datos es una forma organizada de almacenar y manipular información para que:
+Se pueda acceder eficientemente
+Se pueda modificar correctamente
+Se pueda escalar
+
+Lineales:
+Array
+List
+Stack
+Queue
+No lineales:
+Árboles
+Grafos
+HashMap (conceptualmente tabla hash)
+
+-> arrays ---
+Características
+Tamaño fijo
+Acceso por índice O(1)
+Insertar/eliminar en medio O(n)
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] numeros = new int[5];
+
+        numeros[0] = 10;
+        numeros[1] = 20;
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println(numeros[i]);
+        }
+    }
+}
+
+-> arraylist (lista dinamica) ---
+Características
+Tamaño dinámico
+Internamente usa array
+Inserción al final O(1) amortizado
+Búsqueda O(n)
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> nombres = new ArrayList<>();
+
+        nombres.add("Juan");
+        nombres.add("Pedro");
+        nombres.add("Maria");
+
+        nombres.remove("Pedro");
+
+        for (String nombre : nombres) {
+            System.out.println(nombre);
+        }
+    }
+}
+
+-> linkedlist ---
+Características
+Cada elemento apunta al siguiente
+Inserción rápida en extremos
+Acceso lento O(n)
+
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+
+        LinkedList<Integer> lista = new LinkedList<>();
+
+        lista.add(10);
+        lista.add(20);
+        lista.addFirst(5);
+
+        System.out.println(lista);
+    }
+}
+
+-> stack (pila) ---
+LIFO → Last In First Out
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Stack<Integer> pila = new Stack<>();
+
+        pila.push(10);
+        pila.push(20);
+        pila.push(30);
+
+        System.out.println(pila.pop());
+        System.out.println(pila.peek());
+    }
+}
+
+-> queue (cola) ---
+FIFO → First In First Out
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Queue<String> cola = new LinkedList<>();
+
+        cola.add("A");
+        cola.add("B");
+        cola.add("C");
+
+        System.out.println(cola.poll());
+        System.out.println(cola.peek());
+    }
+}
+
+-> set (sin duplicados) ---
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashSet<Integer> numeros = new HashSet<>();
+
+        numeros.add(10);
+        numeros.add(20);
+        numeros.add(10);
+
+        System.out.println(numeros);
+    }
+}
+
+-> map (clave valor) ---
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashMap<String, Integer> edades = new HashMap<>();
+
+        edades.put("Juan", 25);
+        edades.put("Maria", 30);
+
+        System.out.println(edades.get("Juan"));
+    }
+}
+
+--- Big O ---
+Es la medida de eficiencia.
+
+--- recursividad ---
+Una función que se llama a sí misma.
+Requiere:
+Caso base
+Caso recursivo
+
+factorial
+public class Main {
+
+    public static int factorial(int n) {
+        if (n == 0) return 1;
+        return n * factorial(n - 1);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(factorial(5));
+    }
+}
+
+fibonacci
+public class Main {
+
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(fibonacci(6));
+    }
+}
+
+--- algoritmos de ordenamiento ---
+-> bubble sort 0(n²) ---
+public class Main {
+
+    public static void bubbleSort(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] numeros = {5, 2, 9, 1};
+
+        bubbleSort(numeros);
+
+        for (int n : numeros)
+            System.out.print(n + " ");
+    }
+}
+
+-> merge sort O(n log n) ---
+import java.util.Arrays;
+
+public class Main {
+
+    public static void mergeSort(int[] arr) {
+        if (arr.length < 2) return;
+
+        int mid = arr.length / 2;
+        int[] left = Arrays.copyOfRange(arr, 0, mid);
+        int[] right = Arrays.copyOfRange(arr, mid, arr.length);
+
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(arr, left, right);
+    }
+
+    public static void merge(int[] arr, int[] left, int[] right) {
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j])
+                arr[k++] = left[i++];
+            else
+                arr[k++] = right[j++];
+        }
+
+        while (i < left.length)
+            arr[k++] = left[i++];
+
+        while (j < right.length)
+            arr[k++] = right[j++];
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 3, 8, 1};
+        mergeSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+-> busqueda binaria O(log n)
+Requiere arreglo ordenado
+
+public class Main {
+
+    public static int binarySearch(int[] arr, int target) {
+
+        int left = 0, right = arr.length - 1;
+
+        while (left <= right) {
+
+            int mid = (left + right) / 2;
+
+            if (arr[mid] == target)
+                return mid;
+
+            if (arr[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 3, 5, 7, 9};
+        System.out.println(binarySearch(arr, 7));
+    }
+}
+
+-> arboles binarios ---
+class Node {
+    int value;
+    Node left, right;
+
+    Node(int value) {
+        this.value = value;
+    }
+}
+
+public class Main {
+
+    public static void inOrder(Node node) {
+        if (node == null) return;
+
+        inOrder(node.left);
+        System.out.print(node.value + " ");
+        inOrder(node.right);
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(10);
+        root.left = new Node(5);
+        root.right = new Node(20);
+
+        inOrder(root);
+    }
+}
+
+-> bts insercion ---
+public static Node insert(Node root, int value) {
+
+    if (root == null)
+        return new Node(value);
+
+    if (value < root.value)
+        root.left = insert(root.left, value);
+    else
+        root.right = insert(root.right, value);
+
+    return root;
+}
+
+-> grafos (lista de adyacencia) ---
+import java.util.*;
+
+public class Main {
+
+    static Map<Integer, List<Integer>> graph = new HashMap<>();
+
+    public static void addEdge(int u, int v) {
+        graph.computeIfAbsent(u, k -> new ArrayList<>()).add(v);
+    }
+
+    public static void main(String[] args) {
+
+        addEdge(1, 2);
+        addEdge(1, 3);
+
+        System.out.println(graph);
+    }
+}
+
+-> dfs (profundidad) ---
+public static void dfs(int node, Set<Integer> visited) {
+
+    if (visited.contains(node)) return;
+
+    visited.add(node);
+    System.out.println(node);
+
+    for (int neighbor : graph.getOrDefault(node, new ArrayList<>())) {
+        dfs(neighbor, visited);
+    }
+}
+
+--- algoritmia ---
+-> backtracking ---
+Explorar todas las posibilidades y 
+retroceder cuando no sirve.
+import java.util.*;
+
+public class Main {
+
+    public static void permutar(String str, String resultado) {
+
+        if (str.length() == 0) {
+            System.out.println(resultado);
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char actual = str.charAt(i);
+            String restante = str.substring(0, i) + str.substring(i + 1);
+
+            permutar(restante, resultado + actual);
+        }
+    }
+
+    public static void main(String[] args) {
+        permutar("ABC", "");
+    }
+}
+
+-> programacion dinamica ---
+Optimizar recursividad almacenando resultados.
+
+fibonacci optimizado
+import java.util.HashMap;
+
+public class Main {
+
+    static HashMap<Integer, Integer> memo = new HashMap<>();
+
+    public static int fibonacci(int n) {
+
+        if (n <= 1) return n;
+
+        if (memo.containsKey(n))
+            return memo.get(n);
+
+        int result = fibonacci(n - 1) + fibonacci(n - 2);
+        memo.put(n, result);
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(fibonacci(40));
+    }
+}
+
+-> tabulation (bottom up) ---
+public class Main {
+
+    public static int fibonacci(int n) {
+
+        if (n <= 1) return n;
+
+        int[] dp = new int[n + 1];
+
+        dp[0] = 0;
+        dp[1] = 1;
+
+        for (int i = 2; i <= n; i++)
+            dp[i] = dp[i - 1] + dp[i - 2];
+
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(fibonacci(40));
+    }
+}
+
+-> two pointers ---
+encontrar dos números que sumen 
+target en array ordenado.
+
+public class Main {
+
+    public static void twoSum(int[] arr, int target) {
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            int sum = arr[left] + arr[right];
+
+            if (sum == target) {
+                System.out.println(arr[left] + " " + arr[right]);
+                return;
+            }
+
+            if (sum < target)
+                left++;
+            else
+                right--;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,6,8};
+        twoSum(arr, 10);
+    }
+}
+
+-> sliding window ---
+Subarray con suma máxima de tamaño k
+
+public class Main {
+
+    public static int maxSum(int[] arr, int k) {
+
+        int windowSum = 0;
+
+        for (int i = 0; i < k; i++)
+            windowSum += arr[i];
+
+        int maxSum = windowSum;
+
+        for (int i = k; i < arr.length; i++) {
+
+            windowSum += arr[i] - arr[i - k];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {2,1,5,1,3,2};
+        System.out.println(maxSum(arr, 3));
+    }
+}
+
+-> greedy algorithm ---
+cambio de monedas.
+
+public class Main {
+
+    public static void coinChange(int[] coins, int amount) {
+
+        for (int coin : coins) {
+
+            while (amount >= coin) {
+                System.out.println("Usar moneda: " + coin);
+                amount -= coin;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int[] coins = {25,10,5,1};
+        coinChange(coins, 63);
+    }
+}
+
+--- patrones de diseño ---
+Son soluciones reutilizables a problemas 
+comunes de diseño de software.
+No son código específico.
+Son formas probadas de estructurar 
+tu software correctamente.
+
+-> principios SOLID ---
+S — Single Responsibility Principle
+    Una clase debe tener una sola 
+    responsabilidad.
+O — Open/Closed Principle
+    Abierto para extensión, cerrado 
+    para modificación.
+L — Liskov Substitution
+    Una clase hija debe poder reemplazar 
+    a su padre sin romper nada.
+I — Interface Segregation
+    No obligues a implementar métodos 
+    innecesarios.
+D — Dependency Inversion
+    Depende de abstracciones, no de 
+    implementaciones.
+
+--- patrones creacionales ---
+-> singleton ---
+garantiza una sola instancia
+
+class DatabaseConnection {
+
+    private static DatabaseConnection instance;
+
+    private DatabaseConnection() {}
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+
+    public void connect() {
+        System.out.println("Conectado a la base de datos");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DatabaseConnection db1 = DatabaseConnection.getInstance();
+        DatabaseConnection db2 = DatabaseConnection.getInstance();
+
+        db1.connect();
+        System.out.println(db1 == db2); // true
+    }
+}
+
+-> factory method ---
+delega la creacion de objetos
+
+interface Vehiculo {
+    void conducir();
+}
+
+class Carro implements Vehiculo {
+    public void conducir() {
+        System.out.println("Conduciendo carro");
+    }
+}
+
+class Moto implements Vehiculo {
+    public void conducir() {
+        System.out.println("Conduciendo moto");
+    }
+}
+
+class VehiculoFactory {
+    public static Vehiculo crearVehiculo(String tipo) {
+        if (tipo.equals("carro")) return new Carro();
+        if (tipo.equals("moto")) return new Moto();
+        return null;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehiculo v = VehiculoFactory.crearVehiculo("carro");
+        v.conducir();
+    }
+}
+
+-> builder ---
+construccion paso a paso
+
+class Usuario {
+    private String nombre;
+    private int edad;
+
+    private Usuario(Builder builder) {
+        this.nombre = builder.nombre;
+        this.edad = builder.edad;
+    }
+
+    static class Builder {
+        private String nombre;
+        private int edad;
+
+        public Builder setNombre(String nombre) {
+            this.nombre = nombre;
+            return this;
+        }
+
+        public Builder setEdad(int edad) {
+            this.edad = edad;
+            return this;
+        }
+
+        public Usuario build() {
+            return new Usuario(this);
+        }
+    }
+
+    public void mostrar() {
+        System.out.println(nombre + " - " + edad);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Usuario u = new Usuario.Builder()
+                .setNombre("Carlos")
+                .setEdad(30)
+                .build();
+
+        u.mostrar();
+    }
+}
+
+--- patrones estructurales ---
+-> adapter ---
+convierte una interfaz en otra compatible
+
+interface EnchufeEuropeo {
+    void conectar();
+}
+
+class EnchufeAmericano {
+    void plugIn() {
+        System.out.println("Conectado estilo USA");
+    }
+}
+
+class Adapter implements EnchufeEuropeo {
+
+    private EnchufeAmericano americano;
+
+    public Adapter(EnchufeAmericano americano) {
+        this.americano = americano;
+    }
+
+    public void conectar() {
+        americano.plugIn();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        EnchufeEuropeo enchufe = new Adapter(new EnchufeAmericano());
+        enchufe.conectar();
+    }
+}
+
+-> decorator ---
+Añade comportamiento dinámicamente.
+
+interface Cafe {
+    String descripcion();
+}
+
+class CafeSimple implements Cafe {
+    public String descripcion() {
+        return "Cafe simple";
+    }
+}
+
+class ConLeche implements Cafe {
+    private Cafe cafe;
+
+    public ConLeche(Cafe cafe) {
+        this.cafe = cafe;
+    }
+
+    public String descripcion() {
+        return cafe.descripcion() + " + leche";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cafe cafe = new ConLeche(new CafeSimple());
+        System.out.println(cafe.descripcion());
+    }
+}
+
+--- patrones comportsmentales ---
+-> strategy ---
+interface PagoStrategy {
+    void pagar(int monto);
+}
+
+class PagoTarjeta implements PagoStrategy {
+    public void pagar(int monto) {
+        System.out.println("Pagado con tarjeta: " + monto);
+    }
+}
+
+class PagoPaypal implements PagoStrategy {
+    public void pagar(int monto) {
+        System.out.println("Pagado con PayPal: " + monto);
+    }
+}
+
+class Carrito {
+    private PagoStrategy strategy;
+
+    public Carrito(PagoStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void procesarPago(int monto) {
+        strategy.pagar(monto);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Carrito carrito = new Carrito(new PagoPaypal());
+        carrito.procesarPago(100);
+    }
+}
+
+-> observer ---
+Notifica cambios automáticamente.
+
+import java.util.ArrayList;
+import java.util.List;
+
+interface Observer {
+    void actualizar(String mensaje);
+}
+
+class Usuario implements Observer {
+    private String nombre;
+
+    public Usuario(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void actualizar(String mensaje) {
+        System.out.println(nombre + " recibió: " + mensaje);
+    }
+}
+
+class Canal {
+    private List<Observer> observadores = new ArrayList<>();
+
+    public void suscribir(Observer o) {
+        observadores.add(o);
+    }
+
+    public void notificar(String mensaje) {
+        for (Observer o : observadores) {
+            o.actualizar(mensaje);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Canal canal = new Canal();
+        canal.suscribir(new Usuario("Carlos"));
+        canal.notificar("Nuevo video!");
+    }
+}
+
+
