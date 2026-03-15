@@ -1,0 +1,223 @@
+--- definicion ---
+Una estructura de datos es una forma 
+organizada de almacenar, gestionar y 
+acceder a datos en memoria para que 
+puedan ser utilizados de manera eficiente.
+No es solo “guardar datos”, sino:
+Cómo se organizan en memoria
+Cómo se acceden
+Cómo se insertan
+Cómo se eliminan
+Qué tan rápido se puede hacer cada operación
+
+En backend, esto impacta directamente:
+Rendimiento de APIs
+Uso de memoria
+Escalabilidad
+Complejidad algorítmica (Big-O)
+
+Cualquier algoritmo eficiente moderno 
+se apoya en:
+Arrays
+Hash tables
+Árboles
+Grafos
+Heaps
+Conjuntos disjuntos
+Técnicas de optimización
+
+--- fundamento teorico ---
+Las estructuras de datos se basan en 
+tres pilares fundamentales:
+
+-> A. Abstracción
+Una estructura de datos define:
+Qué operaciones permite
+Qué comportamiento garantiza
+Qué restricciones tiene
+La abstracción es separar:
+Qué hace una estructura
+Cómo lo hace internamente
+Ejemplo:
+Es diseñar una interfaz sin exponer la implementación.
+Una pila permite push() y pop()
+Una cola permite enqueue() y dequeue()
+Pero no necesariamente sabes cómo está implementada internamente.
+
+-> B. Complejidad Algorítmica
+Se analizan en términos de:
+Tiempo (Time Complexity)
+Espacio (Space Complexity)
+Mide:
+Cuántas operaciones ejecuta un algoritmo
+Cómo crece ese número cuando crece la entrada
+Big-O describe el crecimiento asintótico.
+No mide tiempo en segundos. Mide cómo escala el algoritmo.
+Ejemplo:
+Acceso en array: O(1)
+Búsqueda en lista enlazada: O(n)
+Búsqueda en árbol balanceado: O(log n)
+
+Tabla de crecimiento real
+Complejidad - 10 elementos -      1000 -   1 millón
+O(1)        -            1 -         1 -          1
+O(log n)    -            3 -        10 -         20
+O(n)        -           10 -      1000 -  1,000,000
+O(n²)       -          100 - 1,000,000 -  imposible
+Por eso un backend serio evita O(n²).
+
+-> C. Modelo de memoria
+En Java/Kotlin:
+Estructuras contiguas → arrays
+Estructuras dinámicas → nodos con referencias
+Basadas en heap y stack
+
+--- planificacion general ---
+Las estructuras de datos se clasifican 
+principalmente en:
+1. Primitivas
+2. No primitivas
+   ├── Lineales
+   └── No lineales
+
+----- Estructuras de Datos Primitivas -----
+Un tipo de dato primitivo es una 
+unidad básica de almacenamiento que:
+Guarda directamente el valor (no una referencia)
+Tiene tamaño fijo en memoria
+No es un objeto
+Vive normalmente en el stack (si es variable local)
+Ahora entiendes por qué backend serio evita O(n²).
+
+Estas no son estructuras complejas, 
+pero son la base.
+Son tipos básicos del lenguaje.
+En Java y Kotlin:
+int
+long
+short
+byte
+float
+double
+char
+boolean
+
+----- Estructuras de Datos No Primitivas -----
+
+--- Estructuras Lineales ---
+Los elementos están organizados secuencialmente.
+
+-> Arrays
+Array estático
+Array dinámico (ArrayList)
+Matrices (arrays bidimensionales)
+Arrays multidimensionales
+
+-> Listas Enlazadas
+Lista simplemente enlazada
+Lista doblemente enlazada
+Lista circular
+Lista doblemente circular
+
+-> Pilas (Stacks)
+Stack basada en array
+Stack basada en lista enlazada
+Stack concurrente
+
+-> Colas (Queues)
+Cola simple (FIFO)
+Cola circular
+Cola de prioridad
+Cola doble (Deque)
+BlockingQueue (concurrencia)
+ConcurrentLinkedQueue
+
+-> Deques (Double Ended Queue)
+ArrayDeque
+LinkedList como deque
+
+-> Tablas Hash
+HashMap
+HashSet
+LinkedHashMap
+LinkedHashSet
+ConcurrentHashMap
+IdentityHashMap
+WeakHashMap
+EnumMap
+EnumSet
+TreeMap (híbrido hash + árbol)
+
+--- Estructuras No Lineales ---
+No siguen un orden secuencial simple.
+
+-> Árboles (Trees)
+Árboles Generales
+Árbol n-ario
+Árbol binario
+Árboles Binarios Especializados
+Árbol binario de búsqueda (BST)
+AVL
+Red-Black Tree
+Splay Tree
+Treap
+Árboles Balanceados
+B-Tree
+B+ Tree
+Árboles Especializados
+Trie (árbol de prefijos)
+Segment Tree
+Fenwick Tree (Binary Indexed Tree)
+Interval Tree
+KD-Tree
+Merkle Tree
+Heap (árbol binario completo)
+
+-> Grafos (Graphs)
+Grafo dirigido
+Grafo no dirigido
+Grafo ponderado
+Grafo no ponderado
+Grafo acíclico (DAG)
+Grafo cíclico
+Grafo completo
+Grafo bipartito
+Grafo planar
+Representaciones:
+Lista de adyacencia
+Matriz de adyacencia
+Lista de aristas
+
+-> Heaps
+Min Heap
+Max Heap
+Fibonacci Heap
+Binomial Heap
+
+-> Estructuras Especializadas
+Disjoint Set (Union-Find)
+Skip List
+Bloom Filter
+Count-Min Sketch
+LRU Cache
+Circular Buffer
+Rope
+Radix Tree
+Suffix Tree
+Suffix Array
+
+-> Estructuras de Datos Concurrentes (Java/Kotlin Backend)
+En backend moderno:
+ConcurrentHashMap
+CopyOnWriteArrayList
+BlockingQueue
+ConcurrentLinkedDeque
+AtomicReference
+LongAdder
+
+-> Estructuras Persistentes / Inmutables
+En Kotlin:
+List inmutable
+Map inmutable
+Persistent List
+Persistent HashMap
