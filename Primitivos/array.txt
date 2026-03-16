@@ -1,0 +1,35 @@
+Un array (arreglo) es una estructura de 
+datos lineal que almacena varios 
+elementos del mismo tipo en posiciones 
+contiguas de memoria. Los arrays son la 
+estructura de datos fundamental sobre 
+la que se construyen muchas otras.
+
+Cosas fundamentales:
+Los datos están uno después del otro.
+Cada elemento tiene un índice (posición).
+Todos tienen el mismo tipo de dato.
+
+complejidad:
+Acceso → O(1)
+
+ejemplo:
+Índice:   0   1   2   3   4
+Valor:   10  25  30  42  50
+
+// declara y define array
+int[] numeros = {10, 25, 30, 42, 50};
+// accede e imprime indice 3
+System.out.println(numeros[2]); // 30
+// recorre toda la array
+for(int i = 0; i < arr.length; i++){
+    System.out.println(arr[i]);
+}
+
+// dos dimensiones
+int[][] matriz = new int[3][3];
+// acceso
+matriz[fila][columna]
+
+// tres dimensiones
+int[][][] cubo = new int[3][3][3];
