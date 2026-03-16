@@ -1,0 +1,32 @@
+Las estructuras de datos primitivas son 
+los tipos de datos básicos que el 
+lenguaje de programación y el hardware 
+entienden directamente.
+Son la unidad mínima de información que 
+puede manejar un programa.
+
+Una estructura de datos primitiva 
+representa un solo valor simple 
+almacenado en memoria.
+A nivel físico, estos datos se 
+almacenan como bits en memoria
+El CPU puede operar directamente sobre 
+ellos, por eso se llaman primitivos.
+
+Ejemplos:
+un número entero
+un número decimal
+un carácter
+un valor verdadero/falso
+Relación con el hardware
+
+--- Tabla ---
+Tipo    - Bits - Bytes - Uso común
+byte    |    8 |     1 | binario
+short   |   16 |     2 | raro
+int     |   32 |     4 | estándar
+long    |   64 |     8 | grandes números
+float   |   32 |     4 | decimales ligeros
+double  |   64 |     8 | decimales precisos
+char    |   16 |     2 | caracteres
+boolean |   ~8 |    ~1 | lógico
