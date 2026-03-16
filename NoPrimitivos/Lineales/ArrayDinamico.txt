@@ -1,0 +1,80 @@
+Un array dinámico es una estructura de 
+datos lineal que:
+Almacena elementos contiguamente en 
+memoria (igual que un array normal).
+
+Pero puede cambiar su tamaño 
+automáticamente cuando se llena:
+se crea un nuevo array
+se copian los elementos
+se reemplaza el anterior
+
+crecimiento multiplicativo:
+nueva_capacidad = capacidad * 2
+
+implementación:
+data[]  -> array interno
+size    -> número de elementos
+capacity -> tamaño del array
+
+acceder a un elemento:
+System.out.println(lista.get(1));
+
+modificar un elemento:
+lista.set(1, 99);
+System.out.println(lista);
+
+insertar un elemento en posicion:
+lista.add(1, 50);
+System.out.println(lista);
+
+eliminar elemento:
+lista.remove(2);
+System.out.println(lista);
+
+ArrayList es una implementación de 
+lista dinámica basada en arrays que 
+pertenece al Java Collections Framework.
+
+crear lista:
+ArrayList<Integer> lista = new ArrayList<>();
+
+crear lista con capacidad inicial:
+ArrayList<Integer> lista = new ArrayList<>(50);
+
+insertar elemento al final:
+lista.add(10);
+
+insertar en posicion especifica:
+lista.add(1, 50);
+
+acceder a elemento:
+lista.get(2);
+
+modificar elemento:
+lista.set(1, 100);
+
+eliminar por indice:
+lista.remove(2);
+
+eliminar por objeto:
+lista.remove(Integer.valueOf(10));
+
+tamaño:
+lista.size();
+
+verificar si tiene un elemento:
+lista.contains(20);
+
+limpiar lista:
+lista.clear();
+
+recorrer lista for clasico:
+for (int i = 0; i < lista.size(); i++) {
+    System.out.println(lista.get(i));
+}
+
+recorrer lista for each:
+for (int numero : lista) {
+    System.out.println(numero);
+}
