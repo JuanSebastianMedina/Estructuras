@@ -1,0 +1,13 @@
+Un array estático es una estructura de 
+datos lineal que almacena elementos del 
+mismo tipo en posiciones de memoria 
+contiguas y cuyo tamaño se define al 
+momento de crearlo y no puede cambiar.
+
+complejidad:
+O(1)
+
+ejemplo:
+Índice:   0   1   2   3   4
+Valor:   10  20  30  40  50
+
