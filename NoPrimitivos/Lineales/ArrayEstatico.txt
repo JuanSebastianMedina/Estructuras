@@ -1,0 +1,30 @@
+Un array estático es una estructura de 
+datos lineal que almacena elementos del 
+mismo tipo en posiciones de memoria 
+contiguas, su tamaño se define al 
+momento de crearlo y no puede cambiar.
+
+complejidad:
+O(1)
+
+ejemplo:
+Índice:   0   1   2   3   4
+Valor:   10  20  30  40  50
+
+declaracion del array: 
+int[] numeros = new int[5];
+
+asignar valores:
+numeros[0] = 10;
+numeros[1] = 20;
+numeros[2] = 30;
+numeros[3] = 40;
+numeros[4] = 50;
+
+acceso a un elemento:
+array[indice]
+
+recorrer el array:
+for(int i = 0; i < numeros.length; i++) {
+    System.out.println(numeros[i]);
+}
