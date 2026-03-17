@@ -1,0 +1,25 @@
+Un array multidimensional de más de 2 
+dimensiones es una estructura que 
+extiende la idea de una matriz.
+1D → lista
+2D → tabla (filas × columnas)
+3D → “cubo de datos”
+nD → estructura con n dimensiones
+Java implementa arrays multidimensionales 
+como arrays de arrays de arrays…
+
+Muchos sistemas reemplazan arrays multidimensionales 
+por: arrays 1D optimizados, estructuras 
+tensoriales, librerías comoTensorFlow y 
+NumPy (en otros lenguajes)
+
+ejemplo:
+int[][][] cubo = new int[2][3][4];
+
+consultar uno:
+cubo[1][2][3] = 10;
+
+recorrido completo:
+for (int i = 0; i < x; i++)
+  for (int j = 0; j < y; j++)
+    for (int k = 0; k < z; k++)
