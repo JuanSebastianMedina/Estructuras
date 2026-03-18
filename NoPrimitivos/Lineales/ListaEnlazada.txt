@@ -1,0 +1,17 @@
+Una lista enlazada (Linked List) es una 
+estructura de datos lineal donde cada 
+elemento se llama nodo. Cada nodo contiene
+un dato y una referencia (puntero) al 
+siguiente nodo.
+
+Una lista enlazada es una cadena de 
+nodos conectados por referencias. 
+Sacrifica velocidad de acceso por 
+eficiencia en modificaciones
+
+A diferencia de un array no están 
+almacenados de forma contigua en memoria
+y están conectados mediante referencias
+
+representacion:
+[10 | * ] → [20 | * ] → [30 | * ] → null
